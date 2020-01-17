@@ -207,7 +207,9 @@ PRODUCT_PACKAGES += \
     SystemDarkAubergineOverlay \
     SystemUIDarkAubergineOverlay \
     SystemClearSpringOverlay \
-    SystemUIClearSpringOverlay
+    SystemUIClearSpringOverlay \
+    SystemSolarizedDarkOverlay \
+    SystemUISolarizedDarkOverlay
 
 # Storage manager
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
