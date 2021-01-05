@@ -21,6 +21,8 @@ else
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
+BUILD_FINGERPRINT := google/redfin/redfin:11/RQ2A.210505.003/7255357:user/release-keys
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/lineage/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
