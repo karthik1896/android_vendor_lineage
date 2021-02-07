@@ -194,14 +194,15 @@ ifneq ($(filter android-oppo android-realme,$(PRODUCT_GMS_CLIENTID_BASE)),)
 DEVICE_PACKAGE_OVERLAYS += vendor/lineage/overlay/realme
 endif
 
-# Face Unlock
-ifneq ($(TARGET_DISABLE_ALTERNATIVE_FACE_UNLOCK), true)
+TARGET_FACE_UNLOCK_SUPPORTED ?= true
+ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
 PRODUCT_PACKAGES += \
     FaceUnlockService
-TARGET_FACE_UNLOCK_SUPPORTED := true
-endif
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.face.moto_unlock_service=$(TARGET_FACE_UNLOCK_SUPPORTED)
+    ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
+endif
 
 # StichImage
 PRODUCT_PACKAGES += \
@@ -218,7 +219,6 @@ else
 endif
 
 # Set LINEAGE_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
-
 ifndef LINEAGE_BUILDTYPE
     ifdef RELEASE_TYPE
         # Starting with "LINEAGE_" is optional
