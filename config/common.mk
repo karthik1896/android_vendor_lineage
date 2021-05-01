@@ -311,11 +311,11 @@ ifeq ($(LINEAGE_BUILDTYPE), UNOFFICIAL)
 endif
 
 ifeq ($(TARGET_FLOS), true)
-    LINEAGE_BUILDTYPE := UNOFFICIAL
+    LINEAGE_BUILDTYPE := OFFICIAL
 endif
 
-ifneq ($(FLOSS_PACK), )
-    FLOS_TYPE := $(FLOSS_PACK)
+ifeq ($(WITH_GMS), true)
+    FLOS_TYPE := GAPPS
 else
     FLOS_TYPE := vanilla
 endif
