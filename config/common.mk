@@ -229,8 +229,10 @@ PRODUCT_PACKAGES += \
     StitchImage
 
 # FOD
+ifeq ($(TARGET_DEVICE),RMX1931)
 PRODUCT_PACKAGES += \
     FodAnimationResources
+endif
 
 PRODUCT_VERSION_MAJOR = 18
 PRODUCT_VERSION_MINOR = 1
