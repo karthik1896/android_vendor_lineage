@@ -18,3 +18,6 @@ endif
 PRODUCT_PACKAGE_OVERLAYS += vendor/lineage/overlay/dictionaries
 
 $(call inherit-product, vendor/lineage/config/telephony.mk)
+
+# Volume Plugins
+include  packages/apps/PotatoPlugins/plugins.mk
